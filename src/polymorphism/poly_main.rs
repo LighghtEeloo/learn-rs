@@ -1,7 +1,4 @@
-// use crate::polymorphism::Student;
-// use crate::polymorphism::House;
-// use crate::polymorphism::Entity;
-use crate::polymorphism::*;
+use crate::polymorphism::poly::*;
 
 pub fn poly_main() {
     let mut vec: Vec<Box<dyn Entity>> = Vec::new();

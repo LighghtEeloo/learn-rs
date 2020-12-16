@@ -1,7 +1,7 @@
 use std::thread;
 use std::time::Duration;
 use rand::Rng;
-use crate::cache::Cacher;
+use crate::cacher::cache::Cacher;
 
 
 fn calculation(num: u32) -> u32 {
@@ -17,7 +17,6 @@ pub fn cache_main() {
     let mut cal_cache = Cacher::new(|num| {
         calculation(num)
     });
-    println!("-------");
     if rand_num < 90 {
         println!(
             "Slowly {}...",
