@@ -2,6 +2,12 @@ mod cacher;
 mod polymorphism;
 mod arc;
 
+pub mod utils {
+    pub use std::sync::Arc;
+    pub use std::thread;
+    pub use std::time::Duration;
+    pub use rand::Rng;
+}
 
 pub struct Wrapper<T> 
 where 

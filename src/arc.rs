@@ -1,12 +1,11 @@
+use crate::utils::*;
+
 pub fn arc_main() {
-    use std::sync::Arc;
-    use std::thread;
-    use std::time::Duration;
     // This variable declaration is where it's value is specified.
     let apple = Arc::new("the same apple");
     
     std::thread::spawn(move || {
-        for i in 0..10 {
+        for i in 0..20 {
             // Here there is no value specification as it is a pointer to a reference
             // in the memory heap.
             let apple = Arc::clone(&apple);
@@ -21,5 +20,6 @@ pub fn arc_main() {
             });
         }
     }).join().expect("Thread Panicked.");
+
 }
     
