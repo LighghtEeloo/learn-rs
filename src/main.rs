@@ -2,8 +2,6 @@ mod cacher;
 mod polymorphism;
 mod arc;
 
-use crate::cacher::cache_main::cache_main;
-use crate::polymorphism::poly_main::poly_main;
 
 pub struct Wrapper<T> 
 where 
@@ -37,7 +35,7 @@ where
 
 fn main() {
     println!();
-    Wrapper::new("Cacher", cache_main).using(false);
-    Wrapper::new("Polymorphism", poly_main).using(false);
+    Wrapper::new("Cacher", cacher::cache_main).using(false);
+    Wrapper::new("Polymorphism", polymorphism::poly_main).using(false);
     Wrapper::new("Arc", arc::arc_main).using(true);
 }

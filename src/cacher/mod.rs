@@ -1,7 +1,10 @@
+pub mod cache;
+
+use cache::Cacher;
+
 use std::thread;
 use std::time::Duration;
 use rand::Rng;
-use crate::cacher::cache::Cacher;
 
 
 fn calculation(num: u32) -> u32 {
