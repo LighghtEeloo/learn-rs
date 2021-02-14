@@ -2,7 +2,7 @@ pub mod poly;
 
 use poly::*;
 
-pub fn poly_main() {
+pub fn main() {
     let mut vec: Vec<Box<dyn Entity>> = Vec::new();
     vec.push(Box::new(House {
         address: vec!(String::from("High Street")),

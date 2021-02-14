@@ -1,6 +1,7 @@
 mod cacher;
 mod polymorphism;
 mod arc;
+mod thread;
 
 pub mod utils {
     pub use std::sync::Arc;
@@ -9,17 +10,12 @@ pub mod utils {
     pub use rand::Rng;
 }
 
-pub struct Wrapper<T> 
-where 
-    T: Fn() -> ()
-{
+pub struct Wrapper<T> {
     name: &'static str,
     op: T,
 }
     
-impl<T> Wrapper<T>
-where 
-    T: Fn() -> ()
+impl<T> Wrapper<T> where T: Fn() -> ()
 {
     pub fn new(name: &'static str, op: T) -> Self {
         Wrapper {
@@ -27,7 +23,6 @@ where
             op
         }
     }
-
     pub fn using(&self, switch: bool) {
         if switch {
             println!(">>> {} <<<", self.name);
@@ -41,7 +36,8 @@ where
 
 fn main() {
     println!();
-    Wrapper::new("Cacher", cacher::cache_main).using(false);
-    Wrapper::new("Polymorphism", polymorphism::poly_main).using(false);
-    Wrapper::new("Arc", arc::arc_main).using(true);
+    Wrapper::new("Cacher", cacher::main).using(false);
+    Wrapper::new("Polymorphism", polymorphism::main).using(false);
+    Wrapper::new("Arc", arc::main).using(false);
+    Wrapper::new("SpawnThread", thread::main).using(true);
 }

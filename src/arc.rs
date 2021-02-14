@@ -1,6 +1,6 @@
 use crate::utils::*;
 
-pub fn arc_main() {
+pub fn main() {
     // This variable declaration is where it's value is specified.
     let apple = Arc::new("the same apple");
     

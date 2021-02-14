@@ -11,7 +11,7 @@ fn calculation(num: u32) -> u32 {
 }
 
 
-pub fn cache_main() {
+pub fn main() {
     let rand_num: u32 = rand::thread_rng().gen_range(1, 101);
     let ran = || rand::thread_rng().gen_range(1, 3);
     let mut cal_cache = Cacher::new(|num| {
