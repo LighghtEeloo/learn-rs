@@ -1,10 +1,11 @@
 mod cacher;
 mod polymorphism;
+mod arc;
 
 use crate::cacher::cache_main::cache_main;
 use crate::polymorphism::poly_main::poly_main;
 
-struct Wrapper<T> 
+pub struct Wrapper<T> 
 where 
     T: Fn() -> ()
 {
@@ -23,15 +24,20 @@ where
         }
     }
 
-    pub fn using(&self) {
-        println!(">>> {} <<<", self.name);
-        (self.op)();
-        println!("^^^ {} ^^^\n", self.name);
+    pub fn using(&self, switch: bool) {
+        if switch {
+            println!(">>> {} <<<", self.name);
+            (self.op)();
+            println!("^^^ {} ^^^\n", self.name);
+        } else {
+            println!("xxx {} xxx\n", self.name);
+        }
     }
 }
 
 fn main() {
     println!();
-    Wrapper::new("Cacher", cache_main).using();
-    Wrapper::new("Polymorphism", poly_main).using();
+    Wrapper::new("Cacher", cache_main).using(false);
+    Wrapper::new("Polymorphism", poly_main).using(false);
+    Wrapper::new("Arc", arc::arc_main).using(true);
 }
