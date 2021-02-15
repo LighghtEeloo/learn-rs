@@ -2,12 +2,16 @@ mod cacher;
 mod polymorphism;
 mod arc;
 mod thread;
+mod shared;
 
 pub mod utils {
-    pub use std::sync::Arc;
     pub use std::thread;
     pub use std::time::Duration;
+    pub use std::sync::Arc;
     pub use rand::Rng;
+    pub use std::rc::Rc;
+    pub use std::cell::RefCell;
+    pub use std::collections::HashMap;
 }
 
 pub struct Wrapper<T> {
