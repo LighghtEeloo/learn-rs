@@ -17,14 +17,17 @@ To utilize learn-rs, you should learn the following:
 
 Commit messages obey the following notation:
 ```
-[- <verb>[: <explain>|.]]*
+[- <verb>[[:|!] <explain>|.]]*
 ```
 where `[]` is "word group", `|` is "or", `*` is "repeat precedent", and `<>` is "label".
+
+Use '!' instead of ':' to declare importance.
 
 The following may serve as an example:
 ```
 - impl: Tree.
 - done: data model.
+- try! RefCell.
 - clean.
 - memo.
 ```
@@ -39,6 +42,7 @@ You should keep in mind that as long as the notation is readable and detailed, i
 - impl.     Aggressive or constructive outcome.
 - done.     General "task complete" verb.
 - rapid.    Quickly build a structure without detailed implementations.
+- frame.    Same as "rapid" but emphasize on a well-defined structure.
 - reframe.  Alter old structures.
 - try.      Make an uncertain attempt.
 - failing.  Not working, but progressive.
