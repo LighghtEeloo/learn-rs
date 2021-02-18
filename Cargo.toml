@@ -3,6 +3,8 @@ name = "learn-rs"
 version = "0.1.0"
 authors = ["LighghtEeloo <2415467501@qq.com>"]
 edition = "2018"
+license = "WPL"
+readme = "readme.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
