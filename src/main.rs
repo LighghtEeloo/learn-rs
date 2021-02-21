@@ -1,3 +1,4 @@
+mod simple;
 mod cacher;
 mod polymorphism;
 mod arc;
@@ -40,8 +41,9 @@ impl<T> Wrapper<T> where T: Fn() -> ()
 
 fn main() {
     println!();
+    Wrapper::new("Simple", simple::main).using(true);
     Wrapper::new("Cacher", cacher::main).using(false);
     Wrapper::new("Polymorphism", polymorphism::main).using(false);
     Wrapper::new("Arc", arc::main).using(false);
-    Wrapper::new("SpawnThread", thread::main).using(true);
+    Wrapper::new("SpawnThread", thread::main).using(false);
 }
