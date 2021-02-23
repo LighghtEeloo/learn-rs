@@ -3,7 +3,7 @@ mod cacher;
 mod polymorphism;
 mod arc;
 mod thread;
-mod shared;
+// mod shared;
 
 pub mod utils {
     pub use std::thread;
