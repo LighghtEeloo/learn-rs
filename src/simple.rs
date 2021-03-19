@@ -16,6 +16,7 @@ pub fn main() {
     unsafe {
         a = 2;
         *p = 3;
+        println!("a = {}; p = {};", a, *p);
     }
 }
 

@@ -17,7 +17,14 @@ pub mod utils {
     pub use std::collections::HashMap;
 }
 
-pub struct Wrapper<T> {
+enum Mode {
+    Perform,
+    _Pass,
+    Mute,
+}
+use Mode::*;
+
+struct Wrapper<T> {
     name: &'static str,
     op: T,
 }
@@ -30,24 +37,37 @@ impl<T> Wrapper<T> where T: Fn() -> ()
             op
         }
     }
-    pub fn using(&self, switch: bool) {
-        if switch {
-            println!(">>> {} <<<", self.name);
-            (self.op)();
-            println!("^^^ {} ^^^\n", self.name);
-        } else {
-            println!("xxx {} xxx\n", self.name);
+    pub fn using(&self, mode: Mode) {
+        match mode {
+            Mode::Perform => {
+                println!(">>> {} <<<", self.name);
+                (self.op)();
+                println!("^^^ {} ^^^\n", self.name);
+            }
+            Mode::_Pass => {
+                println!("xxx {} xxx\n", self.name);
+            }
+            Mode::Mute => ()
         }
     }
 }
 
 fn main() {
     println!();
-    // Wrapper::new("Simple", simple::main).using(false);
-    // Wrapper::new("Petersburg", petersburg::main).using(false);
-    Wrapper::new("Cacher", cacher::main).using(true);
-    // Wrapper::new("Polymorphism", polymorphism::main).using(false);
-    // Wrapper::new("Arc", arc::main).using(false);
-    // Wrapper::new("SpawnThread", thread::main).using(false);
-    // Wrapper::new("JsonLess", jsonless::main).using(true);
+    Wrapper::new("Simple", simple::main).using(Mute);
+    Wrapper::new("Petersburg", petersburg::main).using(Mute);
+    Wrapper::new("Cacher", cacher::main).using(Mute);
+    Wrapper::new("Polymorphism", polymorphism::main).using(Mute);
+    Wrapper::new("Arc", arc::main).using(Mute);
+    Wrapper::new("SpawnThread", thread::main).using(Mute);
+    Wrapper::new("JsonLess", jsonless::main).using(Perform);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn all() {
+        main()
+    }
 }
