@@ -5,6 +5,7 @@ mod polymorphism;
 mod arc;
 mod thread;
 // mod shared;
+mod jsonless;
 
 pub mod utils {
     pub use std::thread;
@@ -43,9 +44,10 @@ impl<T> Wrapper<T> where T: Fn() -> ()
 fn main() {
     println!();
     // Wrapper::new("Simple", simple::main).using(false);
-    Wrapper::new("Petersburg", petersburg::main).using(true);
-    // Wrapper::new("Cacher", cacher::main).using(false);
+    // Wrapper::new("Petersburg", petersburg::main).using(false);
+    Wrapper::new("Cacher", cacher::main).using(true);
     // Wrapper::new("Polymorphism", polymorphism::main).using(false);
     // Wrapper::new("Arc", arc::main).using(false);
     // Wrapper::new("SpawnThread", thread::main).using(false);
+    // Wrapper::new("JsonLess", jsonless::main).using(true);
 }
