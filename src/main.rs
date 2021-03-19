@@ -1,4 +1,5 @@
 mod simple;
+mod batch;
 mod petersburg;
 mod cacher;
 mod polymorphism;
@@ -60,7 +61,8 @@ fn main() {
     Wrapper::new("Polymorphism", polymorphism::main).using(Mute);
     Wrapper::new("Arc", arc::main).using(Mute);
     Wrapper::new("SpawnThread", thread::main).using(Mute);
-    Wrapper::new("JsonLess", jsonless::main).using(Perform);
+    Wrapper::new("JsonLess", jsonless::main).using(Mute);
+    Wrapper::new("Batch", batch::main).using(Perform);
 }
 
 #[cfg(test)]
