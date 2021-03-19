@@ -49,6 +49,7 @@ You should keep in mind that as long as the notation is readable and detailed, i
 - revert.   Not working, fuck this patch.
 - debug.    Working on an ill feature and it's getting better.
 - fix.      Bug gone.
+- chore.    Some unimportant-but-worthy-enough-to-be-recorded jobs.
 - misc.     Anything unimportant. A reminder for impure commits: "not as it sounds".
 - clean.    Clean up some messy code / comments.
 - memo.     Update memo.
