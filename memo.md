@@ -34,8 +34,6 @@ The following may serve as an example:
 
 You should keep in mind that as long as the notation is readable and detailed, it's fine to invent expressions.
 
-// Todo: vocabulary list.
-
 ### Possible `<verb>`
 ```
 - init.     Any init behavior. Always the root commit containing a single .gitignore.
@@ -59,3 +57,20 @@ You should keep in mind that as long as the notation is readable and detailed, i
 ```
 
 ### Rules for `<explain>`
+// Todo: vocabulary list.
+...
+
+
+## use & mod
+
+The `use` and `mod` expressions are written at the top of the `.rs` file, following the following order:
+
+1. dependencies listed in Cargo.toml
+2. std
+3. crates in other workspaces
+4. crate::
+5. super::
+6. self::
+7. mods
+8. mod use
+9. mod exports
